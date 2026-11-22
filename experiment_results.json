@@ -1,0 +1,339 @@
+{
+  "environment": {
+    "python": "3.14.5",
+    "pandas": "3.0.5",
+    "scikit_learn": "1.9.1"
+  },
+  "dataset": {
+    "file": "german.csv",
+    "rows": 1000,
+    "features": 20,
+    "target": "Creditability",
+    "target_counts": {
+      "0": 300,
+      "1": 700
+    },
+    "missing_values": 0
+  },
+  "split": {
+    "train_size": 800,
+    "test_size": 200,
+    "test_fraction": 0.2,
+    "stratified": true,
+    "random_seed": 42
+  },
+  "cross_validation": {
+    "strategy": "StratifiedKFold",
+    "n_splits": 5,
+    "shuffle": true,
+    "random_seed": 42
+  },
+  "selection_criterion": "maximum mean 5-fold train ROC-AUC",
+  "selected_model": "Random Forest (500 trees, min_samples_leaf=2; mixed feature preprocessing)",
+  "selected_parameters": {
+    "family": "random_forest",
+    "feature_encoding": "mixed",
+    "n_estimators": 500,
+    "max_features": "sqrt",
+    "min_samples_leaf": 2,
+    "class_weight": "balanced",
+    "random_seed": 42
+  },
+  "train_cv_roc_auc": 0.7857142857142856,
+  "test_metrics": {
+    "roc_auc": 0.8315476190476191,
+    "accuracy": 0.745,
+    "precision": 0.8396946564885496,
+    "recall": 0.7857142857142857,
+    "f1": 0.8118081180811808
+  },
+  "contract_check": "passed: outputs match selected CV experiment",
+  "experiments": [
+    {
+      "name": "RF mixed, sqrt, leaf=1",
+      "family": "random_forest",
+      "feature_encoding": "mixed",
+      "parameters": {
+        "n_estimators": 500,
+        "max_features": "sqrt",
+        "min_samples_leaf": 1,
+        "class_weight": "balanced"
+      },
+      "cv_fold_roc_auc": [
+        0.8208705357142857,
+        0.7998511904761905,
+        0.7616257440476191,
+        0.7337239583333333,
+        0.7872023809523809
+      ],
+      "train_cv_roc_auc": 0.7806547619047619,
+      "test_metrics": {
+        "roc_auc": 0.8201190476190476,
+        "accuracy": 0.76,
+        "precision": 0.8285714285714286,
+        "recall": 0.8285714285714286,
+        "f1": 0.8285714285714286
+      }
+    },
+    {
+      "name": "RF mixed, sqrt, leaf=2",
+      "family": "random_forest",
+      "feature_encoding": "mixed",
+      "parameters": {
+        "n_estimators": 500,
+        "max_features": "sqrt",
+        "min_samples_leaf": 2,
+        "class_weight": "balanced"
+      },
+      "cv_fold_roc_auc": [
+        0.8208705357142856,
+        0.8069196428571429,
+        0.7682291666666666,
+        0.7433035714285714,
+        0.789248511904762
+      ],
+      "train_cv_roc_auc": 0.7857142857142856,
+      "test_metrics": {
+        "roc_auc": 0.8315476190476191,
+        "accuracy": 0.745,
+        "precision": 0.8396946564885496,
+        "recall": 0.7857142857142857,
+        "f1": 0.8118081180811808
+      }
+    },
+    {
+      "name": "RF mixed, sqrt, leaf=3",
+      "family": "random_forest",
+      "feature_encoding": "mixed",
+      "parameters": {
+        "n_estimators": 500,
+        "max_features": "sqrt",
+        "min_samples_leaf": 3,
+        "class_weight": "balanced"
+      },
+      "cv_fold_roc_auc": [
+        0.8177083333333334,
+        0.8124999999999999,
+        0.7654389880952382,
+        0.7315848214285714,
+        0.7805059523809523
+      ],
+      "train_cv_roc_auc": 0.7815476190476192,
+      "test_metrics": {
+        "roc_auc": 0.8320238095238095,
+        "accuracy": 0.74,
+        "precision": 0.8548387096774194,
+        "recall": 0.7571428571428571,
+        "f1": 0.803030303030303
+      }
+    },
+    {
+      "name": "RF mixed, sqrt, leaf=5",
+      "family": "random_forest",
+      "feature_encoding": "mixed",
+      "parameters": {
+        "n_estimators": 500,
+        "max_features": "sqrt",
+        "min_samples_leaf": 5,
+        "class_weight": "balanced"
+      },
+      "cv_fold_roc_auc": [
+        0.8082217261904762,
+        0.8214285714285715,
+        0.7635788690476191,
+        0.7254464285714286,
+        0.7792038690476192
+      ],
+      "train_cv_roc_auc": 0.779575892857143,
+      "test_metrics": {
+        "roc_auc": 0.835,
+        "accuracy": 0.75,
+        "precision": 0.875,
+        "recall": 0.75,
+        "f1": 0.8076923076923077
+      }
+    },
+    {
+      "name": "RF mixed, max_features=0.5, leaf=2",
+      "family": "random_forest",
+      "feature_encoding": "mixed",
+      "parameters": {
+        "n_estimators": 500,
+        "max_features": 0.5,
+        "min_samples_leaf": 2,
+        "class_weight": "balanced"
+      },
+      "cv_fold_roc_auc": [
+        0.7925967261904762,
+        0.8004092261904762,
+        0.7739955357142858,
+        0.7390252976190476,
+        0.7520461309523809
+      ],
+      "train_cv_roc_auc": 0.7716145833333333,
+      "test_metrics": {
+        "roc_auc": 0.8254761904761906,
+        "accuracy": 0.735,
+        "precision": 0.8320610687022901,
+        "recall": 0.7785714285714286,
+        "f1": 0.8044280442804428
+      }
+    },
+    {
+      "name": "RF mixed, max_features=0.7, leaf=2",
+      "family": "random_forest",
+      "feature_encoding": "mixed",
+      "parameters": {
+        "n_estimators": 500,
+        "max_features": 0.7,
+        "min_samples_leaf": 2,
+        "class_weight": "balanced"
+      },
+      "cv_fold_roc_auc": [
+        0.7948288690476191,
+        0.7873883928571429,
+        0.7734375,
+        0.7399553571428572,
+        0.7568824404761905
+      ],
+      "train_cv_roc_auc": 0.7704985119047618,
+      "test_metrics": {
+        "roc_auc": 0.8272619047619048,
+        "accuracy": 0.735,
+        "precision": 0.84251968503937,
+        "recall": 0.7642857142857142,
+        "f1": 0.8014981273408239
+      }
+    },
+    {
+      "name": "RF mixed, max_features=None, leaf=2",
+      "family": "random_forest",
+      "feature_encoding": "mixed",
+      "parameters": {
+        "n_estimators": 500,
+        "max_features": null,
+        "min_samples_leaf": 2,
+        "class_weight": "balanced"
+      },
+      "cv_fold_roc_auc": [
+        0.7898065476190476,
+        0.7963169642857143,
+        0.7773437500000001,
+        0.7369791666666666,
+        0.7522321428571429
+      ],
+      "train_cv_roc_auc": 0.7705357142857142,
+      "test_metrics": {
+        "roc_auc": 0.8269047619047619,
+        "accuracy": 0.76,
+        "precision": 0.8538461538461538,
+        "recall": 0.7928571428571428,
+        "f1": 0.8222222222222222
+      }
+    },
+    {
+      "name": "Extra Trees mixed, sqrt, leaf=1",
+      "family": "extra_trees",
+      "feature_encoding": "mixed",
+      "parameters": {
+        "n_estimators": 500,
+        "max_features": "sqrt",
+        "min_samples_leaf": 1,
+        "class_weight": "balanced"
+      },
+      "cv_fold_roc_auc": [
+        0.8238467261904762,
+        0.7885044642857142,
+        0.7193080357142857,
+        0.720517113095238,
+        0.759579613095238
+      ],
+      "train_cv_roc_auc": 0.7623511904761904,
+      "test_metrics": {
+        "roc_auc": 0.7944642857142857,
+        "accuracy": 0.77,
+        "precision": 0.7831325301204819,
+        "recall": 0.9285714285714286,
+        "f1": 0.8496732026143791
+      }
+    },
+    {
+      "name": "Extra Trees mixed, sqrt, leaf=2",
+      "family": "extra_trees",
+      "feature_encoding": "mixed",
+      "parameters": {
+        "n_estimators": 500,
+        "max_features": "sqrt",
+        "min_samples_leaf": 2,
+        "class_weight": "balanced"
+      },
+      "cv_fold_roc_auc": [
+        0.8229166666666666,
+        0.7978050595238095,
+        0.7321428571428572,
+        0.7313988095238095,
+        0.7613467261904762
+      ],
+      "train_cv_roc_auc": 0.7691220238095239,
+      "test_metrics": {
+        "roc_auc": 0.7969047619047619,
+        "accuracy": 0.74,
+        "precision": 0.8098591549295775,
+        "recall": 0.8214285714285714,
+        "f1": 0.8156028368794326
+      }
+    },
+    {
+      "name": "RF one-hot all features, sqrt, leaf=2",
+      "family": "random_forest",
+      "feature_encoding": "one_hot_all",
+      "parameters": {
+        "n_estimators": 500,
+        "max_features": "sqrt",
+        "min_samples_leaf": 2,
+        "class_weight": "balanced"
+      },
+      "cv_fold_roc_auc": [
+        0.8316592261904762,
+        0.8020833333333333,
+        0.7492559523809523,
+        0.7300967261904763,
+        0.7626488095238094
+      ],
+      "train_cv_roc_auc": 0.7751488095238095,
+      "test_metrics": {
+        "roc_auc": 0.7998809523809525,
+        "accuracy": 0.74,
+        "precision": 0.8548387096774194,
+        "recall": 0.7571428571428571,
+        "f1": 0.803030303030303
+      }
+    },
+    {
+      "name": "RF numeric codes, sqrt, leaf=2",
+      "family": "random_forest",
+      "feature_encoding": "numeric_codes",
+      "parameters": {
+        "n_estimators": 500,
+        "max_features": "sqrt",
+        "min_samples_leaf": 2,
+        "class_weight": "balanced"
+      },
+      "cv_fold_roc_auc": [
+        0.8037574404761906,
+        0.8167782738095237,
+        0.7671130952380952,
+        0.7327008928571428,
+        0.7827380952380953
+      ],
+      "train_cv_roc_auc": 0.7806175595238096,
+      "test_metrics": {
+        "roc_auc": 0.8259523809523809,
+        "accuracy": 0.785,
+        "precision": 0.8592592592592593,
+        "recall": 0.8285714285714286,
+        "f1": 0.8436363636363636
+      }
+    }
+  ]
+}
